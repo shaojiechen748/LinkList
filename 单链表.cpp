@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+//å•é“¾è¡¨ç»“æ„
 typedef struct LNode {
 	int data;
 	struct LNode* next;
@@ -19,12 +20,12 @@ void delx(Linklist &L,int x) {
 		}
 	}
 }
-//Î²²å·¨
+//å°¾æ’æ³•
 Linklist CreateList(Linklist& L) {
 	int x;
 	L = (Linklist)malloc(sizeof(LNode));
 	LNode* s, * r = L; 
-	printf("ÇëÊäÈë²åÈëÁ´±íµÄÖµ:\n");
+	printf("è¯·è¾“å…¥æ’å…¥é“¾è¡¨çš„å€¼:\n");
 	scanf_s("%d", &x);
 	while (x != 9999) {
 		s = (LNode*)malloc(sizeof(LNode));
@@ -54,7 +55,7 @@ void ReverseShow(Linklist L) {
 	}
 
 	LNode* s = L->next;
-	printf("·´ÏòÊä³öµÄ½á¹ûÎª£º\n");
+	printf("åå‘è¾“å‡ºçš„ç»“æœä¸ºï¼š\n");
 	while (s) {
 		printf("%d", s->data);
 		s = s->next;
@@ -74,7 +75,7 @@ void SortList(Linklist& L) {
 		p = r;
 	}
 }
-//É¾³ıÖ¸¶¨µÄÇø¼äÊı
+//åˆ é™¤æŒ‡å®šçš„åŒºé—´æ•°
 void DeleteAtoB(Linklist& L, int a, int b)
 {
 	LNode* p = L->next,*pre=L;
@@ -90,7 +91,7 @@ void DeleteAtoB(Linklist& L, int a, int b)
 		}
 	}
 }
-//½«Á´±í·ÖÎªÆæÊıÁĞºÍÅ¼ÊıÁĞ
+//å°†é“¾è¡¨åˆ†ä¸ºå¥‡æ•°åˆ—å’Œå¶æ•°åˆ—
 Linklist DivideA(Linklist& A) {
 	LNode* B = (LNode*)malloc(sizeof(LNode));
 	LNode* p = A->next,*pre=A,*pb;
@@ -111,7 +112,7 @@ Linklist DivideA(Linklist& A) {
 	}
 	return B;
 }
-//½«Á´±í·ÖÎªÁ½ÁĞ
+//å°†é“¾è¡¨åˆ†ä¸ºä¸¤åˆ—
 Linklist DivideB(Linklist& L) {
 	LNode* B = new LNode;
 	LNode* p = L->next,*pre=L,*pb=B;
@@ -133,7 +134,7 @@ Linklist DivideB(Linklist& L) {
 	}
 	return B;
 }
-//É¾³ıÓĞĞò±íÖØ¸´Öµ
+//åˆ é™¤æœ‰åºè¡¨é‡å¤å€¼
 void DeleteRipite(Linklist& L) {
 	LNode* p = L->next->next,*pre=L->next;
 	while (p) {
@@ -148,7 +149,7 @@ void DeleteRipite(Linklist& L) {
 		}
 	}
 }
-//ºÏ²¢Á½¸öÓĞĞòÁ´±í
+//åˆå¹¶ä¸¤ä¸ªæœ‰åºé“¾è¡¨
 Linklist MergeList(Linklist L1, Linklist L2) {
 	LNode* B = new LNode;
 	LNode* p1=L1->next, * p2=L2->next, * pb = B, * pre1=L1, * pre2=L2;
@@ -181,7 +182,7 @@ Linklist MergeList(Linklist L1, Linklist L2) {
 	}
 	return B;
 }
-//Á½Á´±íµÄ¹«¹²ÔªËØ
+//ä¸¤é“¾è¡¨çš„å…¬å…±å…ƒç´ 
 Linklist CommonElem(Linklist A, Linklist B) {
 	LNode* C = new LNode;
 	C->next = nullptr;
@@ -205,7 +206,7 @@ Linklist CommonElem(Linklist A, Linklist B) {
 	}
 	return C;
 }
-//Á½¸öÁ´±íµÄ½»¼¯
+//ä¸¤ä¸ªé“¾è¡¨çš„äº¤é›†
 void CrossElem(Linklist& A, Linklist B) {
 	LNode* pa = A->next, * pb = B->next,*prea=A,*r=A;
 	while (pa && pb) {
@@ -227,7 +228,7 @@ void CrossElem(Linklist& A, Linklist B) {
 	}
 	r->next = nullptr;
 }
-//×ÓÁĞÅĞ¶Ï
+//å­åˆ—åˆ¤æ–­
 bool IsSub(Linklist A, Linklist B) {
 	LNode* pa = A->next, * pb = B->next;
 	while (pa&&pb){
@@ -244,15 +245,15 @@ bool IsSub(Linklist A, Linklist B) {
 void main() {
 	Linklist L,L1; int x,a, b;
 	LNode* B;
-	printf("1.É¾³ıÖ¸¶¨Öµ\n2.·´ÏòÊä³öÁ´±í\n3.ÅÅĞò\n4.É¾³ıÖ¸¶¨Çø¼äÊı\n"
-		"5.ÆæÅ¼·ÖÀë\n6.·ÖÀë\n7.É¾³ıÓĞĞò±íÖØ¸´Öµ\n8.ºÏ²¢Á½¸öÓĞĞò±í\n"
-		"9.Á½Á´±íµÄ¹«¹²ÔªËØ\n10.Á½¸öÁ´±íµÄ½»¼¯\n11.×ÓÁĞÅĞ¶Ï");
+	printf("1.åˆ é™¤æŒ‡å®šå€¼\n2.åå‘è¾“å‡ºé“¾è¡¨\n3.æ’åº\n4.åˆ é™¤æŒ‡å®šåŒºé—´æ•°\n"
+		"5.å¥‡å¶åˆ†ç¦»\n6.åˆ†ç¦»\n7.åˆ é™¤æœ‰åºè¡¨é‡å¤å€¼\n8.åˆå¹¶ä¸¤ä¸ªæœ‰åºè¡¨\n"
+		"9.ä¸¤é“¾è¡¨çš„å…¬å…±å…ƒç´ \n10.ä¸¤ä¸ªé“¾è¡¨çš„äº¤é›†\n11.å­åˆ—åˆ¤æ–­");
 	scanf_s("%d", &a);
 	switch (a)
 	{
 	case 1:
 		CreateList(L);
-		printf("ÇëÊäÈëÒªÉ¾³ıµÄÖµ:\n");
+		printf("è¯·è¾“å…¥è¦åˆ é™¤çš„å€¼:\n");
 		scanf_s("%d", &x);
 		delx(L, x);
 		ShowList(L);
@@ -268,7 +269,7 @@ void main() {
 		break;
 	case 4:
 		CreateList(L);
-		printf("ÇëÊäÈëÒªÉ¾³ıÇø¼ä:\n");
+		printf("è¯·è¾“å…¥è¦åˆ é™¤åŒºé—´:\n");
 		scanf_s("%d", &a);
 		scanf_s("%d", &b);
 		DeleteAtoB(L,a,b);
@@ -276,56 +277,56 @@ void main() {
 	case 5:
 		CreateList(L);
 		B = DivideA(L);
-		printf("ÆæÊıÁĞ£º\t");
+		printf("å¥‡æ•°åˆ—ï¼š\t");
 		ShowList(L);
-		printf("Å¼ÊıÁĞ£º\t");
+		printf("å¶æ•°åˆ—ï¼š\t");
 		ShowList(B);
 		break;
 	case 6:
 		CreateList(L);
 		B = DivideB(L);
-		printf("AÁĞ£º\t");
+		printf("Aåˆ—ï¼š\t");
 		ShowList(L);
-		printf("BÁĞ£º\t");
+		printf("Båˆ—ï¼š\t");
 		ShowList(B);
 		break;
 	case 7:
-		printf("!(ÇëÊäÈëÓĞĞò±í)\n");
+		printf("!(è¯·è¾“å…¥æœ‰åºè¡¨)\n");
 		CreateList(L);
 		DeleteRipite(L);
 		ShowList(L); 
 		break;
 	case 8:
-		printf("!(ÇëÊäÈëÓĞĞò±í)\n");
-		printf("ÇëÊäÈë±í1£º\n");
+		printf("!(è¯·è¾“å…¥æœ‰åºè¡¨)\n");
+		printf("è¯·è¾“å…¥è¡¨1ï¼š\n");
 		CreateList(L);
-		printf("ÇëÊäÈë±í2£º\n");
+		printf("è¯·è¾“å…¥è¡¨2ï¼š\n");
 		CreateList(L1);
 		B=MergeList(L, L1);
 		ShowList(B);
 		break;
 	case 9:
-		printf("!(ÇëÊäÈëÓĞĞò±í)\n");
-		printf("ÇëÊäÈë±í1£º\n");
+		printf("!(è¯·è¾“å…¥æœ‰åºè¡¨)\n");
+		printf("è¯·è¾“å…¥è¡¨1ï¼š\n");
 		CreateList(L);
-		printf("ÇëÊäÈë±í2£º\n");
+		printf("è¯·è¾“å…¥è¡¨2ï¼š\n");
 		CreateList(L1);
 		B = CommonElem(L, L1);
 		ShowList(B);
 		break;
 	case 10:
-		printf("!(ÇëÊäÈëÓĞĞò±í)\n");
-		printf("ÇëÊäÈë±í1£º\n");
+		printf("!(è¯·è¾“å…¥æœ‰åºè¡¨)\n");
+		printf("è¯·è¾“å…¥è¡¨1ï¼š\n");
 		CreateList(L);
-		printf("ÇëÊäÈë±í2£º\n");
+		printf("è¯·è¾“å…¥è¡¨2ï¼š\n");
 		CreateList(L1);
 		CrossElem(L, L1);
 		ShowList(L);
 		break;
 	case 11:
-		printf("ÇëÊäÈë±í1£º\n");
+		printf("è¯·è¾“å…¥è¡¨1ï¼š\n");
 		CreateList(L);
-		printf("ÇëÊäÈë±í2£º\n");
+		printf("è¯·è¾“å…¥è¡¨2ï¼š\n");
 		CreateList(L1);
 		a=IsSub(L, L1);
 		printf("%d", a);
